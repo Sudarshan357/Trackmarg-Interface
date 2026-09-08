@@ -9,6 +9,6 @@ export default defineConfig({
     // Lets the dev server accept requests coming through a Cloudflare quick
     // tunnel, whose hostname is a random *.trycloudflare.com subdomain each
     // time it's started - Vite blocks unrecognized Host headers by default.
-   allowedHosts: ['trackmarg-interface.onrender.com'],
+   allowedHosts: ['trackmarg.in', 'www.trackmarg.in'],
   },
 })
