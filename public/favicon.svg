@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <defs>
+    <linearGradient id="pin-fill" x1="20" y1="10" x2="100" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#c4cbdc" />
+    </linearGradient>
+    <mask id="pin-hole">
+      <rect width="120" height="140" fill="#ffffff" />
+      <circle cx="60" cy="52" r="19" fill="#000000" />
+    </mask>
+  </defs>
+
+  <rect width="120" height="140" rx="28" fill="#0a0e1a" />
+
+  <path
+    d="M60 6 C86 6 106 26 106 51 C106 84 60 134 60 134 C60 134 14 84 14 51 C14 26 34 6 60 6 Z"
+    fill="url(#pin-fill)"
+    mask="url(#pin-hole)"
+  />
+
+  <path
+    d="M30,102 C12,90 8,66 20,53 C27,45 36,42 44,44"
+    stroke="#ff7a1e"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-dasharray="0.5 13"
+    fill="none"
+  />
+
+  <path
+    d="M0,-3.5 L25,-3.5 L25,-9 L46,0 L25,9 L25,3.5 L0,3.5 Z"
+    fill="#ff7a1e"
+    transform="translate(70,44) rotate(-50)"
+  />
+</svg>

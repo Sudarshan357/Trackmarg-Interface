@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-ink-950: #05070d;
+  --color-ink-925: #070a13;
+  --color-ink-900: #0a0e1a;
+  --color-ink-850: #0d1220;
+  --color-ink-800: #121a2e;
+  --color-ink-700: #1a2338;
+  --color-ink-600: #263252;
+  --color-ink-500: #3a4666;
+
+  --color-mist-100: #eef1f8;
+  --color-mist-300: #c4cbdc;
+  --color-mist-400: #a2acc4;
+  --color-mist-500: #7d88a6;
+  --color-mist-600: #5c6783;
+
+  --color-brand-300: #ffab6b;
+  --color-brand-400: #ff9142;
+  --color-brand-500: #ff7a1e;
+  --color-brand-600: #f4650a;
+  --color-brand-700: #d2510a;
+
+  --color-azure-400: #5aa9ff;
+  --color-azure-500: #3b82f6;
+
+  --shadow-glow-brand: 0 0 0 1px rgba(255, 122, 30, 0.15), 0 8px 30px -4px rgba(255, 122, 30, 0.35);
+  --shadow-glow-soft: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+
+  --animate-drift: drift 18s ease-in-out infinite;
+  --animate-float: float-y 8s ease-in-out infinite;
+  --animate-blink: blink 2.6s ease-in-out infinite;
+  --animate-glow-shift: glow-shift 16s ease-in-out infinite;
+  --animate-dash-flow: dash-flow 3.5s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -14px, 0); }
+  }
+
+  @keyframes float-y {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -8px, 0); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  @keyframes glow-shift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+    50% { transform: translate3d(3%, -4%, 0) scale(1.06); opacity: 1; }
+  }
+
+  @keyframes dash-flow {
+    to { stroke-dashoffset: -24; }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translate3d(0, 14px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-ink-700);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-mist-100);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
