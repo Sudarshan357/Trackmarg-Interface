@@ -81,8 +81,12 @@ export default function LandingPage() {
 
         {/* Compact stand-in for the floating status card below lg, where there's no
             room to spare beside the hero text - and a mobile-only Log In link, since the
-            header's dropdown remains the primary way to reach it above lg. */}
-        <div className="relative z-10 mt-auto flex flex-col items-start gap-3 px-6 pb-6 sm:px-10 lg:hidden">
+            header's dropdown remains the primary way to reach it above lg. mt-auto used
+            to push this to the bottom of the min-h-svh scene, which put a lot of dead
+            space between it and the tagline above on short viewports and inflated total
+            page height well past one screen - a fixed margin keeps it right after the
+            tagline instead. */}
+        <div className="relative z-10 mt-4 flex flex-col items-start gap-2 px-6 pb-5 sm:px-10 lg:hidden">
           <div className="flex flex-wrap gap-3">
             <MachineStatusCard />
           </div>

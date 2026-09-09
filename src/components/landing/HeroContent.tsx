@@ -18,7 +18,7 @@ export default function HeroContent({ theme }: { theme: Theme }) {
     // room for the On the Move card to sit inline next to Watch the Full Story
     // instead of wrapping - the paragraph/tagline below have their own narrower
     // max-widths, so this only widens what the CTA row can use.
-    <div className="max-w-xl px-6 pt-[clamp(0.75rem,3dvh,2rem)] sm:px-10 md:max-w-2xl lg:max-w-3xl">
+    <div className="max-w-xl px-6 pt-[clamp(0.5rem,2dvh,1.25rem)] sm:px-10 sm:pt-[clamp(0.75rem,3dvh,2rem)] md:max-w-2xl lg:max-w-3xl">
       <div className="flex items-center gap-3">
         <span
           style={shadow}
@@ -31,7 +31,11 @@ export default function HeroContent({ theme }: { theme: Theme }) {
 
       <h1
         style={shadow}
-        className={`mt-3 text-[clamp(2.25rem,7dvh,4.75rem)] font-bold leading-[0.94] tracking-tight ${heroTextClass}`}
+        // Below sm: sized against viewport WIDTH (vw) instead of height - the height-based
+        // clamp above was tuned for wide desktop/tablet rows and doesn't know how narrow a
+        // phone screen is, so "Management" was overflowing past the edge at 320-430px. The
+        // sm: override below restores the exact original desktop/tablet formula unchanged.
+        className={`mt-3 text-[clamp(2rem,11vw,2.75rem)] font-bold leading-[0.94] tracking-tight sm:text-[clamp(2.25rem,7dvh,4.75rem)] ${heroTextClass}`}
       >
         From Movement
         <br />
@@ -40,12 +44,12 @@ export default function HeroContent({ theme }: { theme: Theme }) {
         <span className="text-brand-500">Without Limits.</span>
       </h1>
 
-      <p style={shadow} className={`mt-4 max-w-md text-base leading-relaxed sm:text-lg ${heroMutedTextClass}`}>
+      <p style={shadow} className={`mt-3 max-w-md text-base leading-relaxed sm:mt-4 sm:text-lg ${heroMutedTextClass}`}>
         Track vehicles. Manage excavators. Reconcile accounts.
         <br className="hidden sm:block" /> All in one intelligent platform.
       </p>
 
-      <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-4">
+      <div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-3 sm:mt-6 sm:gap-y-4">
         <Button to="/get-started">
           Get Started
           <span aria-hidden="true">→</span>
@@ -66,7 +70,7 @@ export default function HeroContent({ theme }: { theme: Theme }) {
         <TransportStatusCard />
       </div>
 
-      <div className="mt-5 max-w-[13rem] border-t border-white/15 pt-3">
+      <div className="mt-4 max-w-[13rem] border-t border-white/15 pt-3 sm:mt-5">
         <span
           style={shadow}
           className={`text-[10px] font-bold uppercase leading-relaxed tracking-[0.2em] ${heroFaintTextClass}`}
