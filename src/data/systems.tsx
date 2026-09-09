@@ -19,9 +19,8 @@ export type SystemDef = {
    * there instead of the "coming soon" stub. A plain string is used as-is (the
    * app's own entry screen handles both onboarding and login itself, e.g.
    * Ledger+'s welcome screen). A function receives which TrackMarg flow sent the
-   * user, for a system whose entry screen needs to be told which one to open —
-   * e.g. Transport defaults to a login form and needs a hint to open signup
-   * instead when the user came from Get Started.
+   * user, for a system whose entry screen needs to be told which one to open
+   * instead of defaulting to one regardless of how the user got there.
    */
   externalUrl?: string | ((mode: "onboarding" | "login") => string)
 }
@@ -46,11 +45,7 @@ export const systems: SystemDef[] = [
       ring: "group-hover:border-brand-500/50",
       glow: "group-hover:shadow-glow-brand",
     },
-    // The app's own entry screen (AuthPage.tsx) always defaults to its login form and
-    // has no neutral "choose" screen of its own, unlike Ledger+ - so it needs to be told
-    // which TrackMarg flow sent the user here, or Get Started would land on Login too.
-    externalUrl: (mode) =>
-      `https://shivam-transport.onrender.com/?mode=${mode === "onboarding" ? "signup" : "login"}`,
+    externalUrl: "https://shivam-transport.onrender.com/?mode=login",
   },
   {
     id: "excavator",
