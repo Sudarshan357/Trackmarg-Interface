@@ -45,7 +45,7 @@ export const systems: SystemDef[] = [
       ring: "group-hover:border-brand-500/50",
       glow: "group-hover:shadow-glow-brand",
     },
-    externalUrl: "https://shivam-transport.onrender.com/?mode=login",
+    externalUrl: "https://transport.trackmarg.in/",
   },
   {
     id: "excavator",
