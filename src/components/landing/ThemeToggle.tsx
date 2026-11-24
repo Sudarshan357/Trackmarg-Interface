@@ -12,14 +12,14 @@ export default function ThemeToggle({
     <div
       role="group"
       aria-label="Theme"
-      className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/30 p-1 backdrop-blur-md"
+      className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/30 p-1 backdrop-blur-md max-[380px]:gap-0 max-[380px]:p-0.5"
     >
       <button
         type="button"
         aria-pressed={theme === "day"}
         aria-label="Day theme"
         onClick={() => onChange("day")}
-        className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all duration-500 sm:px-3 sm:text-sm ${
+        className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all duration-500 sm:px-3 sm:text-sm max-[380px]:gap-0 max-[380px]:px-1.5 max-[380px]:py-1 ${
           theme === "day" ? "bg-white text-ink-950 shadow-sm" : "text-white/70 hover:text-white"
         }`}
       >
@@ -31,7 +31,7 @@ export default function ThemeToggle({
         aria-pressed={theme === "night"}
         aria-label="Night theme"
         onClick={() => onChange("night")}
-        className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all duration-500 sm:px-3 sm:text-sm ${
+        className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all duration-500 sm:px-3 sm:text-sm max-[380px]:gap-0 max-[380px]:px-1.5 max-[380px]:py-1 ${
           theme === "night" ? "bg-white text-ink-950 shadow-sm" : "text-white/70 hover:text-white"
         }`}
       >

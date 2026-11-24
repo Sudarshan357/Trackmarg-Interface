@@ -1,5 +1,7 @@
 import heroDay from "../../assets/hero-day.png"
+import heroDayMobile from "../../assets/hero-day-mobile.webp"
 import heroNight from "../../assets/hero-night.png"
+import heroNightMobile from "../../assets/hero-night-mobile.webp"
 import { ParallaxLayer } from "./ParallaxScene"
 import type { Theme } from "./theme"
 
@@ -17,23 +19,33 @@ const IMAGES: Record<Theme, string> = {
 export default function ParallaxBackground({ theme }: { theme: Theme }) {
   return (
     <ParallaxLayer depth={5} className="absolute inset-0">
-      <img
-        src={IMAGES.day}
-        alt=""
-        style={{ filter: "brightness(0.88) saturate(0.9)" }}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+      <picture
+        className={`absolute inset-0 block transition-opacity duration-700 ${
           theme === "day" ? "opacity-100" : "opacity-0"
         }`}
-        draggable={false}
-      />
-      <img
-        src={IMAGES.night}
-        alt=""
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+      >
+        <source media="(max-width: 767px)" type="image/webp" srcSet={heroDayMobile} />
+        <img
+          src={IMAGES.day}
+          alt=""
+          style={{ filter: "brightness(0.88) saturate(0.9)" }}
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
+        />
+      </picture>
+      <picture
+        className={`absolute inset-0 block transition-opacity duration-700 ${
           theme === "night" ? "opacity-100" : "opacity-0"
         }`}
-        draggable={false}
-      />
+      >
+        <source media="(max-width: 767px)" type="image/webp" srcSet={heroNightMobile} />
+        <img
+          src={IMAGES.night}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
+        />
+      </picture>
       {/* Top/bottom scrim so the header and footer chrome - dark-glass in both themes -
           reads cleanly against whichever part of the sky or road sits behind it. */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/35 to-transparent" />

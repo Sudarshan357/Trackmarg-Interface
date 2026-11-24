@@ -19,24 +19,28 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="relative z-30 grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-5 sm:px-10 sm:py-6">
+    <header className="relative z-30 grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-5 sm:px-10 sm:py-6 max-[380px]:grid-cols-[auto_1fr_auto] max-[380px]:gap-1 max-[380px]:px-3">
       <div className="justify-self-start">
-        <Logo variant="inline" size="sm" />
+        <Logo
+          variant="inline"
+          size="sm"
+          className="max-[380px]:gap-1 max-[380px]:[&>svg]:h-6 max-[380px]:[&>svg]:w-5 max-[380px]:[&>span]:text-sm"
+        />
       </div>
 
       <div className="justify-self-center">
         <ThemeToggle theme={theme} onChange={onThemeChange} />
       </div>
 
-      <div className="flex items-center justify-self-end gap-2 sm:gap-3">
+      <div className="flex items-center justify-self-end gap-2 sm:gap-3 max-[380px]:gap-1">
         <button
           type="button"
           onClick={onRequestDemo}
-          className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md transition-colors duration-200 hover:bg-black/45 sm:px-4 sm:text-sm"
+          className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md transition-colors duration-200 hover:bg-black/45 sm:px-4 sm:text-sm max-[380px]:gap-1 max-[380px]:px-2 max-[380px]:py-1.5"
         >
           <span className="hidden sm:inline">Request Demo</span>
           <span className="sm:hidden">Demo</span>
-          <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+          <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5 max-[380px]:hidden">
             →
           </span>
         </button>

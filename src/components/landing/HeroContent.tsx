@@ -35,7 +35,7 @@ export default function HeroContent({ theme }: { theme: Theme }) {
         // clamp above was tuned for wide desktop/tablet rows and doesn't know how narrow a
         // phone screen is, so "Management" was overflowing past the edge at 320-430px. The
         // sm: override below restores the exact original desktop/tablet formula unchanged.
-        className={`mt-3 text-[clamp(2rem,11vw,2.75rem)] font-bold leading-[0.94] tracking-tight sm:text-[clamp(2.25rem,7dvh,4.75rem)] ${heroTextClass}`}
+        className={`mt-3 text-[clamp(2rem,11vw,2.75rem)] font-bold leading-[0.94] tracking-tight max-[430px]:text-[clamp(1.75rem,9.5vw,2.5rem)] max-[380px]:text-[clamp(1.75rem,9vw,2rem)] sm:text-[clamp(2.25rem,7dvh,4.75rem)] ${heroTextClass}`}
       >
         From Movement
         <br />
